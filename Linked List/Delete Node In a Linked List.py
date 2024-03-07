@@ -1,22 +1,13 @@
-from typing import List
+from ListNode import ListNode
 
-
-# Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
 
 class Solution:
     def deleteNode(self, node):
-        node.val = node.next.val
-        node.next = node.next.next
-        del node
-
-class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
+        nextNode = node.next
+        node.val = nextNode.val
+        node.next = nextNode.next
+        nextNode.next = None
+        del (nextNode)
 
 
 if __name__ == "__main__":
@@ -30,7 +21,7 @@ if __name__ == "__main__":
         node = node.next
 
     s = Solution()
-    s.deleteNode(head.next)
+    s.deleteNode(head.next.next)
 
     while head:
         print(head.val)
