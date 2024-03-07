@@ -9,10 +9,9 @@ from typing import List
 
 class Solution:
     def deleteNode(self, node):
-        new_node = node.next
-        node.val = new_node.val
-        node.next = new_node.next
-        del (new_node)
+        node.val = node.next.val
+        node.next = node.next.next
+        del node
 
 class ListNode:
     def __init__(self, x):
